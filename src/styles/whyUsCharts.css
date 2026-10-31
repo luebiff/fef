@@ -1,0 +1,116 @@
+.why-us-chart {
+  box-sizing: border-box;
+  width: min(100%, 520px);
+  margin: 24px auto 32px;
+}
+
+.why-us-chart-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.why-us-chart-heading,
+.why-us-chart-axis-label,
+.why-us-chart-unit,
+.why-us-chart-year,
+.why-us-chart-source,
+.why-us-sector-chart-title {
+  fill: #111;
+  font-family: Arial, sans-serif;
+}
+
+.why-us-chart-heading {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.why-us-chart-gridline {
+  stroke: #c6c6c6;
+  stroke-width: 1;
+}
+
+.why-us-chart-axis-label,
+.why-us-chart-unit {
+  font-size: 9px;
+}
+
+.why-us-market-cap-bar {
+  fill: #92283d;
+}
+
+.why-us-chart-year {
+  font-size: 8px;
+}
+
+.why-us-chart-source-line {
+  stroke: #92283d;
+  stroke-width: 2;
+}
+
+.why-us-chart-source {
+  font-size: 9px;
+  font-style: italic;
+}
+
+.why-us-sector-chart {
+  width: min(100%, 900px);
+  margin: 36px auto 0;
+  text-align: center;
+}
+
+.why-us-sector-chart-title {
+  margin: 0 0 22px;
+  font-size: 27px;
+}
+
+.why-us-sector-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 12px;
+  margin: 0 auto 10px;
+  padding: 0;
+  color: #555;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  list-style: none;
+}
+
+.why-us-sector-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.why-us-sector-swatch {
+  display: inline-block;
+  width: 40px;
+  height: 10px;
+}
+
+.why-us-sector-pie {
+  display: block;
+  width: min(100%, 460px);
+  height: auto;
+  margin: 0 auto;
+}
+
+@media (max-width: 480px) {
+  .why-us-chart {
+    margin-top: 18px;
+  }
+
+  .why-us-sector-chart-title {
+    font-size: 22px;
+  }
+
+  .why-us-sector-legend {
+    gap: 8px;
+    font-size: 11px;
+  }
+
+  .why-us-sector-swatch {
+    width: 24px;
+  }
+}

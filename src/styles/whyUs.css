@@ -1,0 +1,67 @@
+.why-us-page {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(320px, 1fr);
+  align-items: start;
+  gap: 4.5%;
+  min-height: calc(100vh - 67px);
+  margin: -10px;
+  padding: 36px 30px;
+  background: #fff;
+  color: #111;
+}
+
+.why-us-content {
+  min-width: 0;
+}
+
+.why-us-title {
+  margin: 0 0 18px;
+  color: var(--color-secondary);
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.why-us-intro,
+.why-us-description {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.why-us-section-title {
+  margin: 30px 0 16px;
+  font-size: 22px;
+}
+
+.why-us-description {
+  margin-bottom: 20px;
+}
+
+.why-us-follow-up {
+  margin-top: 34px;
+}
+
+.why-us-follow-up > .why-us-description {
+  margin-bottom: 30px;
+}
+
+@media (max-width: 850px) {
+  .why-us-page {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    padding: 28px 20px;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .why-us-title {
+    font-size: 25px;
+  }
+
+  .why-us-section-title {
+    font-size: 20px;
+  }
+
+}

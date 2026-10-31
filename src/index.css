@@ -1,0 +1,123 @@
+body {
+  margin: 0;
+  padding: 67px 0 0 0;
+}
+
+#root {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --color-primary: #1d71b8;
+  --color-primary-dark: #1557a0;
+  --color-secondary: #0ac6f2;
+  --color-secondary-dark: #0a9db3;
+  --color-text: #000000;
+  --color-accent: #71aa34;
+  --mobile-breakpoint: 670px;
+  --color-background: var(--color-secondary);
+  /* //#f5f5f5 */
+  /* background: linear-gradient(
+    131deg,
+    var(--color-primary),
+    var(--color-secondary)
+  ); */
+  background-color: var(--color-background);
+  color: #ffffff;
+}
+
+.main-content {
+  padding: 10px;
+}
+
+.glass-card {
+  background: var(--color-background);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6.3px);
+  -webkit-backdrop-filter: blur(6.3px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* flytta till egen css fil sen */
+
+.info-cards {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+}
+
+.info-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  /* max-width: 400px; */
+}
+
+.info-card-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  margin-right: 20px;
+}
+
+/* spacing */
+table {
+  border-collapse: collapse;
+  width: 390px;
+  table-layout: fixed;
+}
+
+thead th {
+  line-height: 1.5;
+}
+
+thead th:nth-child(1) {
+  width: 70%;
+}
+
+thead th:nth-child(2) {
+  width: 15%;
+}
+
+thead th:nth-child(3) {
+  width: 15%;
+}
+
+thead,
+tfoot {
+  background-color: var(--color-primary);
+  color: #fff;
+  text-align: left;
+}
+
+tbody tr {
+  color: #000000;
+}
+
+tbody tr:nth-child(odd):hover,
+tbody tr:nth-child(even):hover {
+  background-color: var(--color-secondary);
+  color: #fff;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+/* tfoot td {
+  font-weight: bold;
+  width: 100%;
+} */
+
+tfoot td p {
+  margin: 0;
+}
+
+td,
+th {
+  padding: 8px;
+}

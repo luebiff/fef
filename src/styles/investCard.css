@@ -1,0 +1,57 @@
+.invest-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  /* max-width: 400px; */
+}
+
+.overlay {
+  border-image: linear-gradient(rgba(0, 0, 0, 0.414), rgba(0, 0, 0, 0.414)) fill
+    1;
+  border-radius: 10px;
+}
+
+.invest-card-header {
+  font-size: 1.5em;
+  margin-bottom: 0px;
+}
+
+.invest-card-info-description {
+  font-size: 1em;
+
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+.invest-card-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.invest-card-button {
+  background-color: transparent;
+  border: 2px solid var(--color-primary);
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: 0.3s;
+}
+
+.invest-card-button:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.start {
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+}
+
+.start:hover {
+  background-color: var(--color-primary-dark);
+}

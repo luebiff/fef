@@ -1,0 +1,233 @@
+.invest-page {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(320px, 1fr);
+  align-items: start;
+  gap: 4.5%;
+  min-height: calc(100vh - 67px);
+  margin: -10px;
+  padding: 28px 30px 44px;
+  background: #fff;
+  color: #111;
+}
+
+.invest-content {
+  min-width: 0;
+}
+
+.invest-title {
+  margin: 0 0 24px;
+  color: var(--color-secondary);
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.invest-platforms {
+  display: grid;
+  gap: 28px;
+  margin: 0 0 54px;
+}
+
+.invest-platform-row {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  align-items: center;
+  gap: 20px;
+  min-height: 88px;
+}
+
+.invest-platform-logo {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  color: #050505;
+  text-decoration: none;
+}
+
+.avanza-logo {
+  gap: 9px;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -1.4px;
+}
+
+.avanza-bars {
+  display: inline-flex;
+  height: 42px;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+.avanza-bars i {
+  display: block;
+  width: 8px;
+  background: #00a85a;
+}
+
+.avanza-bars i:nth-child(1) {
+  height: 12px;
+}
+
+.avanza-bars i:nth-child(2) {
+  height: 20px;
+}
+
+.avanza-bars i:nth-child(3) {
+  height: 30px;
+}
+
+.avanza-bars i:nth-child(4) {
+  height: 42px;
+}
+
+.nordnet-logo {
+  gap: 14px;
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.nordnet-mark {
+  display: inline-flex;
+  width: 76px;
+  height: 30px;
+  align-items: center;
+  gap: 2px;
+  overflow: hidden;
+}
+
+.nordnet-mark i {
+  display: block;
+  width: 32px;
+  height: 23px;
+  background: #050505;
+  transform: skew(-38deg);
+}
+
+.nordnet-mark i + i {
+  width: 20px;
+  height: 14px;
+  margin-left: -11px;
+  transform: skew(38deg);
+}
+
+.invest-platform-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.invest-platform-links a {
+  display: inline-flex;
+  min-width: 120px;
+  min-height: 38px;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 22px;
+  border-radius: 999px;
+  background: var(--color-secondary);
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 150ms ease;
+}
+
+.invest-platform-links a:hover,
+.invest-platform-links a:focus-visible {
+  background: var(--color-primary);
+}
+
+.invest-risk-disclaimer {
+  max-width: 900px;
+  margin: 0 0 30px;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.invest-fund-section h2 {
+  margin: 0 0 18px;
+  font-size: 23px;
+}
+
+.invest-fund-section p,
+.invest-direct-section p {
+  max-width: 1000px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.invest-fund-section a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.invest-fund-section a:hover {
+  text-decoration: underline;
+}
+
+.invest-direct-section {
+  margin-top: 24px;
+}
+
+.invest-small-cap-section {
+  margin-top: 34px;
+}
+
+.invest-small-cap-platform-info {
+  margin-top: 16px !important;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 850px) {
+  .invest-page {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+    padding: 24px 18px 36px;
+  }
+
+  .invest-title {
+    font-size: 27px;
+  }
+
+  .invest-platforms {
+    gap: 24px;
+    margin-bottom: 36px;
+  }
+
+  .invest-platform-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .invest-platform-links {
+    gap: 10px;
+  }
+
+  .invest-platform-links a {
+    min-width: 112px;
+    padding: 9px 16px;
+    font-size: 12px;
+  }
+
+  .invest-risk-disclaimer,
+  .invest-fund-section p,
+  .invest-direct-section p {
+    font-size: 15px;
+  }
+}

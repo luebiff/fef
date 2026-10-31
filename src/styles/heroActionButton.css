@@ -1,0 +1,23 @@
+.hero-action-button {
+  width: 220px;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+  margin-top: 100px;
+  transition: 0.4s;
+}
+
+.hero-action-button-text {
+  font-size: 1.2em;
+  margin: 0px;
+}
+
+.hero-action-button:hover {
+  background-color: var(--color-primary);
+  color: #fff;
+}

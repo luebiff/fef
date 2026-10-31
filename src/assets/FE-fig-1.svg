@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 29.8.1, SVG Export Plug-In . SVG Version: 9.03 Build 0)  -->
+<svg version="1.1" id="Lager_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 360 360" enable-background="new 0 0 360 360" xml:space="preserve">
+<g>
+	<line fill="none" stroke="#DDDDDD" stroke-width="2" stroke-miterlimit="10" x1="260" y1="60" x2="260" y2="300"/>
+	<line fill="none" stroke="#DDDDDD" stroke-width="2" stroke-miterlimit="10" x1="220" y1="60" x2="220" y2="300"/>
+	<line fill="none" stroke="#DDDDDD" stroke-width="2" stroke-miterlimit="10" x1="180" y1="60" x2="180" y2="300"/>
+	<line fill="none" stroke="#DDDDDD" stroke-width="2" stroke-miterlimit="10" x1="140" y1="60" x2="140" y2="300"/>
+	<line fill="none" stroke="#DDDDDD" stroke-width="2" stroke-miterlimit="10" x1="100" y1="60" x2="100" y2="300"/>
+	<g>
+		<line fill="none" stroke="#DDDDDD" stroke-width="2" stroke-miterlimit="10" x1="300" y1="260" x2="60" y2="260"/>
+		<line fill="none" stroke="#DDDDDD" stroke-width="2" stroke-miterlimit="10" x1="300" y1="220" x2="60" y2="220"/>
+		<line fill="none" stroke="#DDDDDD" stroke-width="2" stroke-miterlimit="10" x1="300" y1="180" x2="60" y2="180"/>
+		<line fill="none" stroke="#DDDDDD" stroke-width="2" stroke-miterlimit="10" x1="300" y1="140" x2="60" y2="140"/>
+		<line fill="none" stroke="#DDDDDD" stroke-width="2" stroke-miterlimit="10" x1="300" y1="100" x2="60" y2="100"/>
+		<rect x="60" y="60" fill="none" stroke="#DDDDDD" stroke-width="2" stroke-miterlimit="10" width="240" height="240"/>
+	</g>
+</g>
+<g>
+	<circle fill="#1D71B8" cx="59.7918472" cy="300.2081604" r="40"/>
+	<circle fill="#009FE3" cx="130.5025177" cy="229.4974823" r="20"/>
+	<circle fill="#009FE3" cx="187.0710754" cy="172.9289246" r="20"/>
+	<circle fill="#009FE3" cx="243.6396179" cy="116.3603897" r="20"/>
+	<circle fill="#009FE3" cx="300.2081604" cy="59.7918472" r="20"/>
+</g>
+</svg>

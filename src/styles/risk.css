@@ -1,0 +1,87 @@
+.risk-page {
+  box-sizing: border-box;
+  min-height: calc(100vh - 67px);
+  margin: -10px;
+  padding: 30px;
+  background: #fff;
+  color: #111;
+}
+
+.risk-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr);
+  align-items: start;
+  gap: 4.5%;
+}
+
+.risk-content {
+  min-width: 0;
+}
+
+.risk-content h1 {
+  margin: 0 0 12px;
+  color: var(--color-secondary);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.risk-content h2 {
+  margin: 20px 0 8px;
+  font-size: 17px;
+}
+
+.risk-content p {
+  margin: 0 0 10px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.risk-content .risk-intro {
+  margin-bottom: 18px;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.risk-content a,
+.risk-documents {
+  color: var(--color-primary);
+}
+
+.risk-content a {
+  text-decoration: none;
+}
+
+.risk-content a:hover,
+.risk-content a:focus-visible {
+  text-decoration: underline;
+}
+
+.risk-documents {
+  display: grid;
+  gap: 6px;
+  margin: 22px 0 0;
+  padding: 0;
+  font-size: 13px;
+  list-style: none;
+}
+
+@media (max-width: 850px) {
+  .risk-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .risk-layout > .promo-aside {
+    grid-row: 1;
+  }
+}
+
+@media (max-width: 600px) {
+  .risk-page {
+    padding: 24px 18px 36px;
+  }
+
+  .risk-content h1 {
+    font-size: 22px;
+  }
+}

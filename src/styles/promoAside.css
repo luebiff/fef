@@ -1,0 +1,47 @@
+.promo-aside {
+  box-sizing: border-box;
+  padding: 30px;
+  border-radius: 20px;
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.promo-aside-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 20px;
+}
+
+.promo-aside-title {
+  margin: 0 0 4px;
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.promo-aside-copy {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+@media (max-width: 850px) {
+  .promo-aside {
+    max-width: 560px;
+    padding: 28px;
+  }
+
+  .promo-aside-logo {
+    margin-bottom: 20px;
+  }
+
+  .promo-aside-title {
+    font-size: 21px;
+  }
+
+  .promo-aside-copy {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.45;
+  }
+}

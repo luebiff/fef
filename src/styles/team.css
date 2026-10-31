@@ -1,0 +1,172 @@
+.team-page {
+  box-sizing: border-box;
+  margin: -10px;
+  padding-top: 12px;
+  background: #fff;
+  color: #111;
+}
+
+.team-page-title {
+  margin: 0 30px 12px;
+  color: var(--color-secondary);
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.team-page-layout {
+  display: grid;
+  grid-template-columns: minmax(130px, 0.42fr) minmax(0, 1.25fr) minmax(280px, 1fr);
+  align-items: start;
+  gap: 24px;
+  padding: 0 30px 38px;
+}
+
+.team-section-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.team-section-button {
+  min-height: 40px;
+  padding: 10px 18px;
+  border: 1px solid transparent;
+  background: #fff;
+  color: var(--color-primary);
+  font: inherit;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.team-section-button.active {
+  border-color: #cfd3d8;
+  border-right-color: #fff;
+  color: var(--color-secondary-dark);
+}
+
+.team-section-button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+}
+
+.team-profile-panel {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid #cfd3d8;
+  background: #fff;
+}
+
+.team-profile-image {
+  display: block;
+  width: 100%;
+  max-height: 360px;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+.team-board-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 0 16px;
+}
+
+.team-profile-panel h2 {
+  margin: 14px 0 10px;
+  font-size: 20px;
+}
+
+.team-profile-panel h3 {
+  margin: 14px 0 10px;
+  font-size: 16px;
+}
+
+.team-profile-panel p,
+.team-profile-panel li {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.team-profile-panel p {
+  margin: 0 0 10px;
+}
+
+.team-list-panel ul {
+  display: grid;
+  gap: 12px;
+  margin: 12px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.team-page-layout > .promo-aside {
+  margin-top: -35px;
+}
+
+.team-testimonial {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 62px 24px 82px;
+  background: #fafafa;
+  text-align: center;
+}
+
+.team-testimonial p {
+  max-width: 740px;
+  margin: 0 auto 18px;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.team-testimonial cite {
+  font-size: 15px;
+  font-style: normal;
+}
+
+@media (max-width: 950px) {
+  .team-page-layout {
+    grid-template-columns: minmax(120px, 0.4fr) minmax(0, 1.4fr);
+    gap: 18px;
+  }
+
+  .team-page-layout > .promo-aside {
+    grid-column: 2;
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .team-page-title {
+    margin-right: 18px;
+    margin-left: 18px;
+  }
+
+  .team-page-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    padding: 0 18px 28px;
+  }
+
+  .team-section-nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .team-section-button {
+    padding: 9px 6px;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .team-section-button.active {
+    border-color: #cfd3d8;
+  }
+
+  .team-page-layout > .promo-aside {
+    grid-column: auto;
+  }
+
+  .team-testimonial {
+    padding: 42px 18px 54px;
+  }
+}

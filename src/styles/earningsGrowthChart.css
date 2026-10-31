@@ -1,0 +1,62 @@
+.earnings-growth-chart {
+  width: min(100%, 520px);
+  margin: 20px auto 30px;
+}
+
+.earnings-growth-chart-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.earnings-chart-heading,
+.earnings-chart-value,
+.earnings-chart-axis-label,
+.earnings-chart-period,
+.earnings-chart-legend,
+.earnings-chart-source {
+  fill: #111;
+  font-family: Arial, sans-serif;
+}
+
+.earnings-chart-heading {
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.earnings-chart-gridline {
+  stroke: #c7c7c7;
+  stroke-width: 1;
+}
+
+.earnings-chart-axis-label,
+.earnings-chart-value,
+.earnings-chart-period,
+.earnings-chart-legend {
+  font-size: 10px;
+}
+
+.earnings-chart-value {
+  font-size: 9px;
+}
+
+.earnings-chart-legend {
+  font-size: 8px;
+}
+
+.earnings-chart-source-line {
+  stroke: #92283d;
+  stroke-width: 2;
+}
+
+.earnings-chart-source {
+  font-size: 9px;
+  font-style: italic;
+}
+
+@media (max-width: 480px) {
+  .earnings-growth-chart {
+    margin-top: 12px;
+  }
+}
