@@ -1,86 +1,165 @@
 .collaborations-page {
   box-sizing: border-box;
   min-height: calc(100vh - 67px);
-  margin: -10px;
-  padding: 30px;
-  background: #fff;
-  color: #111;
-}
-
-.collaborations-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr);
-  align-items: start;
-  gap: 4.5%;
+  padding: clamp(48px, 7vw, 88px) 24px;
+  background: var(--color-background, #fdfbf7);
+  color: #263746;
 }
 
 .collaborations-content {
-  min-width: 0;
+  display: grid;
+  width: min(100%, 1120px);
+  gap: clamp(48px, 7vw, 76px);
+  margin: 0 auto;
 }
 
-.collaborations-content > h1 {
-  margin: 0 0 10px;
-  color: var(--color-secondary);
-  font-size: 24px;
-  font-weight: 500;
+.collaborations-hero {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.collaborations-eyebrow {
+  margin: 0 0 14px;
+  color: var(--color-primary, #1d71b8);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.collaborations-title {
+  margin: 0 0 20px;
+  color: var(--color-primary-dark, #1557a0);
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.collaborations-intro {
+  max-width: 660px;
+  margin: 0 auto;
+  color: #465563;
+  font-size: clamp(17px, 2vw, 19px);
+  line-height: 1.75;
+}
+
+.collaborations-partners {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
 }
 
 .collaboration-partner {
-  margin-bottom: 18px;
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 16px;
+  min-width: 0;
+  padding: clamp(24px, 4vw, 38px);
+  border: 1px solid rgba(29, 113, 184, 0.08);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 12px 36px rgba(24, 55, 81, 0.06);
 }
 
 .collaboration-partner h2 {
-  margin: 0 0 9px;
-  font-size: 18px;
+  margin: 0;
+  color: var(--color-primary-dark, #1557a0);
+  font-size: clamp(23px, 3vw, 30px);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
 }
 
 .collaboration-partner p {
-  max-width: 760px;
-  margin: 0 0 12px;
-  font-size: 14px;
-  line-height: 1.5;
+  margin: 0;
+  color: #465563;
+  font-size: 15px;
+  line-height: 1.7;
 }
 
 .collaboration-link {
   display: inline-flex;
-  min-height: 30px;
+  min-height: 44px;
+  box-sizing: border-box;
   align-items: center;
   justify-content: center;
-  padding: 0 16px;
+  padding: 10px 18px;
   border-radius: 999px;
-  background: var(--color-secondary);
+  background: var(--color-secondary, #0ac6f2);
   color: #fff;
-  font-size: 11px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.035em;
+  text-align: center;
   text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    transform 160ms ease;
 }
 
 .collaboration-link:hover,
 .collaboration-link:focus-visible {
-  background: var(--color-primary);
+  background: var(--color-secondary-dark, #0a9db3);
 }
 
-.collaborations-layout > .promo-aside {
-  margin-top: 0;
+.collaboration-link:hover {
+  transform: translateY(-2px);
 }
 
-@media (max-width: 850px) {
-  .collaborations-layout {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 28px;
-  }
-
-  .collaborations-layout > .promo-aside {
-    grid-row: 1;
-  }
+.collaboration-link:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
 }
 
-@media (max-width: 600px) {
+.collaborations-promo {
+  width: min(100%, 760px);
+  margin: 0 auto;
+}
+
+@media (max-width: 760px) {
   .collaborations-page {
-    padding: 24px 18px;
+    padding: 48px 20px 64px;
   }
 
-  .collaborations-content > h1 {
-    font-size: 22px;
+  .collaborations-content {
+    gap: 56px;
+  }
+}
+
+@media (max-width: 560px) {
+  .collaborations-page {
+    padding: 40px 16px 52px;
+  }
+
+  .collaborations-content {
+    gap: 48px;
+  }
+
+  .collaborations-partners {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .collaboration-partner {
+    gap: 14px;
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+
+  .collaborations-intro,
+  .collaboration-partner p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .collaboration-link {
+    transition: none;
   }
 }

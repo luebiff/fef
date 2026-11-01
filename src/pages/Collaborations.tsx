@@ -35,31 +35,45 @@ const partners = [
 function Collaborations() {
   return (
     <main className="collaborations-page">
-      <div className="collaborations-layout">
-        <div className="collaborations-content">
-          <h1>Samarbeten</h1>
-          <div className="collaborations-partners">
-            {partners.map((partner) => (
-              <section
-                className="collaboration-partner"
-                key={partner.name}
-                aria-labelledby={`partner-${partner.name}`}
+      <div className="collaborations-content">
+        <header className="collaborations-hero">
+          <p className="collaborations-eyebrow">
+            Tillsammans för ett tryggt sparande
+          </p>
+          <h1 className="collaborations-title">Samarbeten</h1>
+          <p className="collaborations-intro">
+            Vi samarbetar med specialister inom fondadministration, risk och
+            IT för att kunna erbjuda en väl fungerande fondförvaltning.
+          </p>
+        </header>
+
+        <section
+          className="collaborations-partners"
+          aria-label="Våra samarbetspartner"
+        >
+          {partners.map((partner) => (
+            <article
+              className="collaboration-partner"
+              key={partner.name}
+              aria-labelledby={`partner-${partner.name}`}
+            >
+              <h2 id={`partner-${partner.name}`}>{partner.name}</h2>
+              <p>{partner.description}</p>
+              <a
+                className="collaboration-link"
+                href={partner.href}
+                target="_blank"
+                rel="noreferrer"
               >
-                <h2 id={`partner-${partner.name}`}>{partner.name}</h2>
-                <p>{partner.description}</p>
-                <a
-                  className="collaboration-link"
-                  href={partner.href}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {partner.linkLabel}
-                </a>
-              </section>
-            ))}
-          </div>
+                {partner.linkLabel}
+              </a>
+            </article>
+          ))}
+        </section>
+
+        <div className="collaborations-promo">
+          <PromoAside />
         </div>
-        <PromoAside />
       </div>
     </main>
   );

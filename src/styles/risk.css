@@ -1,87 +1,167 @@
 .risk-page {
   box-sizing: border-box;
   min-height: calc(100vh - 67px);
-  margin: -10px;
-  padding: 30px;
-  background: #fff;
-  color: #111;
-}
-
-.risk-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr);
-  align-items: start;
-  gap: 4.5%;
+  padding: clamp(48px, 7vw, 88px) 24px;
+  background: var(--color-background, #fdfbf7);
+  color: #263746;
 }
 
 .risk-content {
-  min-width: 0;
+  display: grid;
+  width: min(100%, 1120px);
+  gap: clamp(48px, 7vw, 76px);
+  margin: 0 auto;
 }
 
-.risk-content h1 {
-  margin: 0 0 12px;
-  color: var(--color-secondary);
-  font-size: 24px;
+.risk-hero {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.risk-eyebrow {
+  margin: 0 0 14px;
+  color: var(--color-primary, #1d71b8);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+.risk-hero h1 {
+  margin: 0 0 20px;
+  color: var(--color-primary-dark, #1557a0);
+  font-size: clamp(36px, 5vw, 58px);
   font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  text-wrap: balance;
 }
 
-.risk-content h2 {
-  margin: 20px 0 8px;
-  font-size: 17px;
+.risk-intro {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(24px, 4vw, 36px);
+  border: 1px solid rgba(29, 113, 184, 0.1);
+  border-radius: 20px;
+  background: #f0f7fb;
+  color: #465563;
+  font-size: clamp(16px, 2vw, 18px);
+  font-weight: 500;
+  line-height: 1.7;
+  text-align: left;
 }
 
-.risk-content p {
-  margin: 0 0 10px;
-  font-size: 14px;
-  line-height: 1.5;
+.risk-sections {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 24px;
 }
 
-.risk-content .risk-intro {
-  margin-bottom: 18px;
-  font-size: 14px;
-  font-style: italic;
+.risk-sections section,
+.risk-documents-card {
+  min-width: 0;
+  padding: clamp(24px, 4vw, 38px);
+  border: 1px solid rgba(29, 113, 184, 0.08);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 12px 36px rgba(24, 55, 81, 0.06);
 }
 
-.risk-content a,
-.risk-documents {
-  color: var(--color-primary);
+.risk-sections h2,
+.risk-documents-card h2 {
+  margin: 0 0 16px;
+  color: var(--color-primary-dark, #1557a0);
+  font-size: clamp(21px, 2.5vw, 27px);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  text-wrap: balance;
 }
 
-.risk-content a {
-  text-decoration: none;
+.risk-sections p {
+  margin: 0 0 14px;
+  color: #465563;
+  font-size: 15px;
+  line-height: 1.7;
 }
 
-.risk-content a:hover,
-.risk-content a:focus-visible {
+.risk-sections p:last-child {
+  margin-bottom: 0;
+}
+
+.risk-sections a {
+  color: var(--color-primary, #1d71b8);
+  font-weight: 600;
   text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.risk-sections a:hover {
+  color: var(--color-primary-dark, #1557a0);
+}
+
+.risk-documents-card h2 {
+  margin-bottom: 18px;
 }
 
 .risk-documents {
   display: grid;
-  gap: 6px;
-  margin: 22px 0 0;
+  gap: 12px;
+  margin: 0;
   padding: 0;
-  font-size: 13px;
+  color: #465563;
+  font-size: 15px;
+  line-height: 1.6;
   list-style: none;
 }
 
-@media (max-width: 850px) {
-  .risk-layout {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 28px;
+.risk-documents li {
+  padding-left: 18px;
+  background: linear-gradient(var(--color-secondary), var(--color-secondary))
+    left 0.65em / 7px 7px no-repeat;
+}
+
+@media (max-width: 800px) {
+  .risk-page {
+    padding: 48px 20px 64px;
   }
 
-  .risk-layout > .promo-aside {
-    grid-row: 1;
+  .risk-content {
+    gap: 56px;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 760px) {
   .risk-page {
-    padding: 24px 18px 36px;
+    padding: 40px 16px 52px;
   }
 
-  .risk-content h1 {
-    font-size: 22px;
+  .risk-content {
+    gap: 48px;
+  }
+
+  .risk-sections {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .risk-sections section,
+  .risk-documents-card {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+
+  .risk-intro {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+
+  .risk-sections p,
+  .risk-documents {
+    font-size: 15px;
+    line-height: 1.7;
   }
 }
