@@ -1,53 +1,77 @@
 .about-page {
   box-sizing: border-box;
-  margin: -10px;
-  padding: 28px 30px 48px;
-  background: #fff;
-  color: #111;
+  min-height: calc(100vh - 67px);
+  padding: clamp(48px, 7vw, 88px) 24px;
+  background: var(--color-background, #fdfbf7);
+  color: #263746;
 }
 
-.about-page-layout {
+.about-page-content {
   display: grid;
-  grid-template-columns: minmax(0, 1.7fr) minmax(320px, 1fr);
-  align-items: start;
-  gap: 4.5%;
+  width: min(100%, 1120px);
+  gap: clamp(64px, 9vw, 104px);
+  margin: 0 auto;
 }
 
-.about-main-content {
-  min-width: 0;
+.about-intro {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-eyebrow {
+  margin: 0 0 12px;
+  color: var(--color-primary, #1d71b8);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.45;
+  text-transform: uppercase;
 }
 
 .about-intro h1 {
-  margin: 0 0 12px;
-  color: var(--color-secondary);
-  font-size: 28px;
-  font-weight: 500;
+  margin: 0 0 18px;
+  color: var(--color-primary-dark, #1557a0);
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.about-intro > p:last-child,
+.about-page p {
+  color: #465563;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+.about-intro > p:last-child {
+  max-width: 680px;
+  margin: 0 auto;
+  font-size: clamp(17px, 2vw, 19px);
+}
+
+.about-section-heading {
+  margin: 0 auto 34px;
+  text-align: center;
 }
 
 .about-page h2 {
-  margin: 24px 0 12px;
-  font-size: 20px;
-}
-
-.about-page p {
-  margin: 0 0 12px;
-  font-size: 15px;
-  line-height: 1.55;
-}
-
-.about-intro p {
-  margin-bottom: 20px;
-}
-
-.about-story h2 {
-  margin-top: 20px;
+  margin: 0;
+  color: var(--color-primary-dark, #1557a0);
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  text-wrap: balance;
 }
 
 .about-timeline {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 16px 40px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -55,111 +79,188 @@
 
 .about-timeline::before {
   position: absolute;
-  top: 26px;
-  bottom: 26px;
+  top: 24px;
+  bottom: 24px;
   left: 50%;
   width: 2px;
-  background: #e7e8f5;
+  background: #dce8f0;
   content: "";
+  transform: translateX(-50%);
+}
+
+.about-timeline::after {
+  position: absolute;
+  top: 24px;
+  bottom: 24px;
+  left: 50%;
+  width: 2px;
+  background: var(--color-secondary, #0ac6f2);
+  content: "";
+  transform: translateX(-50%) scaleY(var(--about-timeline-progress, 0));
+  transform-origin: top;
+  pointer-events: none;
 }
 
 .about-timeline-item {
   position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  column-gap: 64px;
   min-width: 0;
-  padding-top: 18px;
 }
 
-.about-timeline-item:nth-child(odd) {
+.about-timeline-item:nth-child(odd) .about-timeline-card {
   grid-column: 1;
 }
 
-.about-timeline-item:nth-child(even) {
+.about-timeline-item:nth-child(even) .about-timeline-card {
   grid-column: 2;
-  margin-top: 90px;
 }
 
 .about-timeline-year {
   position: absolute;
-  top: 0;
-  right: -32px;
+  top: 50%;
+  left: calc(50% + 50px);
   z-index: 1;
-  color: #45bdf0;
-  font-size: 24px;
-  font-weight: 500;
-  transform: translateX(50%);
+  color: #8b98a4;
+  font-size: clamp(20px, 2.4vw, 28px);
+  font-weight: 600;
+  line-height: 1;
+  transition: color 180ms ease;
+  transform: translateY(-50%);
+}
+
+.about-timeline-item.is-reached .about-timeline-year {
+  color: var(--color-primary-dark, #1557a0);
 }
 
 .about-timeline-item:nth-child(even) .about-timeline-year {
-  right: auto;
-  left: -30px;
-  transform: translateX(-50%);
+  right: calc(50% + 50px);
+  left: auto;
+  text-align: right;
+}
+
+.about-timeline-marker {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  width: 24px;
+  height: 24px;
+  box-sizing: border-box;
+  border: 4px solid var(--color-background, #fdfbf7);
+  border-radius: 50%;
+  background: #dfe4f1;
+  transition: background-color 180ms ease;
+  transform: translate(-50%, -50%);
+}
+
+.about-timeline-item.is-reached .about-timeline-marker {
+  background: var(--color-secondary, #0ac6f2);
+}
+
+.about-timeline-marker::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #fff;
+  content: "";
+  transform: translate(-50%, -50%);
+}
+
+.about-timeline-item:nth-child(even) .about-timeline-marker {
+  left: 50%;
 }
 
 .about-timeline-card {
   overflow: hidden;
-  border-radius: 3px;
+  height: 100%;
+  border: 1px solid rgba(29, 113, 184, 0.08);
+  border-radius: 20px;
   background: #fff;
-  box-shadow: 0 5px 22px rgba(28, 42, 86, 0.1);
+  box-shadow: 0 12px 36px rgba(24, 55, 81, 0.06);
 }
 
 .about-timeline-image {
   display: block;
   width: 100%;
-  height: 110px;
+  height: 220px;
   object-fit: cover;
-  object-position: center 36%;
+  object-position: center 35%;
 }
 
 .about-timeline-card-content {
-  padding: 16px 18px;
+  padding: clamp(20px, 3vw, 30px);
 }
 
 .about-timeline-card h3 {
-  margin: 0 0 10px;
-  font-size: 16px;
+  margin: 0 0 12px;
+  color: var(--color-primary-dark, #1557a0);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.3;
+  text-wrap: balance;
 }
 
 .about-timeline-card p {
   margin: 0;
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-.about-timeline-marker {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2;
-  display: grid;
-  width: 22px;
-  height: 22px;
-  place-items: center;
-  border-radius: 50%;
-  background: #e9e9f7;
-  color: #fff;
-  font-size: 10px;
-  transform: translateX(50%);
-}
-
-.about-timeline-item:nth-child(even) .about-timeline-marker {
-  right: auto;
-  left: 0;
-  transform: translateX(-50%);
+  font-size: 15px;
 }
 
 .about-strategy,
+.about-philosophy,
 .about-sustainability {
-  margin-top: 30px;
+  padding: clamp(28px, 5vw, 52px);
+  border: 1px solid rgba(29, 113, 184, 0.08);
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 12px 36px rgba(24, 55, 81, 0.06);
 }
 
-.about-strategy h2:first-child,
-.about-sustainability h2:first-child {
-  margin-top: 0;
+.about-strategy {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.about-strategy .about-eyebrow,
+.about-philosophy .about-eyebrow,
+.about-sustainability .about-eyebrow {
+  margin-bottom: 14px;
+}
+
+.about-strategy p:last-child,
+.about-philosophy-copy p:last-child {
+  margin-bottom: 0;
+}
+
+.about-strategy p,
+.about-philosophy p,
+.about-sustainability p {
+  margin: 18px 0 0;
+}
+
+.about-philosophy {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 64px);
+  background: linear-gradient(135deg, #fff 0%, #f0f7fb 100%);
+}
+
+.about-philosophy-card {
+  padding: clamp(16px, 3vw, 28px);
+  border: 1px solid rgba(29, 113, 184, 0.08);
+  border-radius: 18px;
+  background: #fff;
 }
 
 .about-philosophy-diagram {
   width: min(100%, 480px);
-  margin: 26px auto 30px;
+  margin: 0 auto;
 }
 
 .about-philosophy-diagram svg {
@@ -178,75 +279,162 @@
 
 .about-process-start {
   fill: none;
-  stroke: var(--color-secondary);
+  stroke: var(--color-secondary, #0ac6f2);
   stroke-dasharray: 7 7;
   stroke-width: 6;
 }
 
 .about-process-node {
-  fill: var(--color-secondary);
+  fill: var(--color-secondary, #0ac6f2);
 }
 
 .about-process-label {
-  fill: var(--color-primary);
+  fill: var(--color-primary-dark, #1557a0);
   font-family: inherit;
   font-size: 14px;
 }
 
+.about-sustainability {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+  align-items: start;
+  gap: clamp(28px, 5vw, 64px);
+  background: linear-gradient(135deg, #fff 0%, #f0f7fb 100%);
+}
+
+.about-sustainability-content p:first-child {
+  margin-top: 0;
+}
+
 .about-sustainability-document {
-  color: var(--color-primary);
+  display: inline-flex;
+  margin-top: 24px;
+  padding: 12px 16px;
+  border: 1px solid rgba(29, 113, 184, 0.12);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--color-primary-dark, #1557a0);
   font-size: 14px;
+  font-weight: 600;
 }
 
-@media (max-width: 850px) {
-  .about-page-layout {
+@media (max-width: 800px) {
+  .about-philosophy,
+  .about-sustainability {
     grid-template-columns: minmax(0, 1fr);
-    gap: 28px;
-  }
-
-  .about-page-layout > .promo-aside {
-    grid-row: 1;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 560px) {
   .about-page {
-    padding: 24px 18px 36px;
+    padding: 40px 16px 52px;
+  }
+
+  .about-page-content {
+    gap: 52px;
+  }
+
+  .about-intro > p:last-child,
+  .about-page p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .about-intro > p:last-child {
+    font-size: 16px;
+  }
+
+  .about-section-heading {
+    margin-bottom: 26px;
+    text-align: left;
   }
 
   .about-timeline {
     grid-template-columns: minmax(0, 1fr);
-    gap: 16px;
-    padding-left: 28px;
+    gap: 22px;
+    padding-left: 82px;
   }
 
   .about-timeline::before {
-    left: 9px;
+    top: 20px;
+    bottom: 20px;
+    left: 16px;
+    transform: none;
   }
 
-  .about-timeline-item:nth-child(odd),
+  .about-timeline::after {
+    top: 20px;
+    bottom: 20px;
+    left: 16px;
+    transform: scaleY(var(--about-timeline-progress, 0));
+  }
+
+  .about-timeline-item,
   .about-timeline-item:nth-child(even) {
-    grid-column: 1;
-    margin-top: 0;
+    grid-template-columns: minmax(0, 1fr);
+    column-gap: 0;
   }
 
-  .about-timeline-year,
-  .about-timeline-item:nth-child(even) .about-timeline-year {
-    top: 14px;
+  .about-timeline-item:nth-child(odd) .about-timeline-card,
+  .about-timeline-item:nth-child(even) .about-timeline-card {
+    grid-column: 1;
+  }
+
+  .about-timeline-year {
+    top: 50%;
     right: auto;
-    left: -28px;
-    font-size: 16px;
-    transform: translateX(-100%);
+    left: -48px;
+    font-size: 11px;
+    transform: translateY(-50%);
+  }
+
+  .about-timeline-item:nth-child(even) .about-timeline-year {
+    right: auto;
+    left: -48px;
+    text-align: left;
   }
 
   .about-timeline-marker,
   .about-timeline-item:nth-child(even) .about-timeline-marker {
+    top: 50%;
     right: auto;
-    left: -19px;
-    transform: none;
+    left: -70px;
+    width: 20px;
+    height: 20px;
+    transform: translateY(-50%);
+  }
+
+  .about-timeline-card {
+    border-radius: 16px;
   }
 
   .about-timeline-image {
-    height: 150px;
+    height: 180px;
+  }
+
+  .about-timeline-card-content {
+    padding: 20px;
+  }
+
+  .about-timeline-card h3 {
+    font-size: 18px;
+  }
+
+  .about-strategy,
+  .about-philosophy,
+  .about-sustainability {
+    padding: 24px 20px;
+    border-radius: 18px;
+  }
+
+  .about-strategy p,
+  .about-philosophy p,
+  .about-sustainability p {
+    margin-top: 14px;
+  }
+
+  .about-philosophy-card {
+    padding: 12px;
+    border-radius: 14px;
   }
 }

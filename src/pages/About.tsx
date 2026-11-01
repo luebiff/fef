@@ -1,5 +1,5 @@
+import { useEffect, useRef } from "react";
 import fredrikSkoglund from "../assets/fSkoglund.webp";
-import PromoAside from "../components/PromoAside";
 import "../styles/about.css";
 
 const milestones = [
@@ -58,7 +58,12 @@ function InvestmentPhilosophyDiagram() {
             refY="4.5"
             orient="auto"
           >
-            <path d="M0 0 L8 4.5 L0 9" fill="none" stroke="#70ad35" strokeWidth="2" />
+            <path
+              d="M0 0 L8 4.5 L0 9"
+              fill="none"
+              stroke="#70ad35"
+              strokeWidth="2"
+            />
           </marker>
         </defs>
         <path
@@ -89,56 +94,128 @@ function InvestmentPhilosophyDiagram() {
 }
 
 function About() {
+  const timelineRef = useRef<HTMLOListElement>(null);
+
+  useEffect(() => {
+    const timeline = timelineRef.current;
+    if (!timeline) {
+      return;
+    }
+
+    let animationFrame = 0;
+    const updateProgress = () => {
+      animationFrame = 0;
+      const bounds = timeline.getBoundingClientRect();
+      const progress =
+        (window.innerHeight - bounds.top) /
+        (window.innerHeight + bounds.height);
+      const timelineStyle = window.getComputedStyle(timeline, "::after");
+      const trackTop = Number.parseFloat(timelineStyle.top);
+      const trackBottom = Number.parseFloat(timelineStyle.bottom);
+      const fillPosition =
+        bounds.top +
+        trackTop +
+        (timeline.clientHeight - trackTop - trackBottom) *
+          Math.min(1, Math.max(0, progress));
+
+      timeline.style.setProperty(
+        "--about-timeline-progress",
+        String(Math.min(1, Math.max(0, progress))),
+      );
+
+      timeline.querySelectorAll(".about-timeline-item").forEach((item) => {
+        const marker = item.querySelector(".about-timeline-marker");
+        if (!marker) {
+          return;
+        }
+
+        const markerBounds = marker.getBoundingClientRect();
+        const markerPosition = markerBounds.top + markerBounds.height / 2;
+        item.classList.toggle("is-reached", markerPosition <= fillPosition);
+      });
+    };
+
+    const scheduleProgressUpdate = () => {
+      if (animationFrame === 0) {
+        animationFrame = window.requestAnimationFrame(updateProgress);
+      }
+    };
+
+    updateProgress();
+    window.addEventListener("scroll", scheduleProgressUpdate, {
+      passive: true,
+    });
+    window.addEventListener("resize", scheduleProgressUpdate);
+
+    return () => {
+      window.removeEventListener("scroll", scheduleProgressUpdate);
+      window.removeEventListener("resize", scheduleProgressUpdate);
+      window.cancelAnimationFrame(animationFrame);
+    };
+  }, []);
+
   return (
-    <main className="about-page">
-      <div className="about-page-layout">
-        <div className="about-main-content">
-          <header className="about-intro">
-            <h1>Om oss</h1>
-            <p>
-              FE Fonder är ett värdepappersbolag med ett tillstånd för
-              diskretionär portföljförvaltning från Finansinspektionen.
-            </p>
-          </header>
+    <section className="about-page" aria-labelledby="about-page-title">
+      <div className="about-page-content">
+        <header className="about-intro">
+          <p className="about-eyebrow">Om FE Fonder</p>
+          <h1 id="about-page-title">Långsiktighet med småbolag i fokus</h1>
+          <p>
+            FE Fonder är ett värdepappersbolag med ett tillstånd för
+            diskretionär portföljförvaltning från Finansinspektionen.
+          </p>
+        </header>
 
-          <section className="about-story" aria-labelledby="about-story-title">
+        <section className="about-story" aria-labelledby="about-story-title">
+          <div className="about-section-heading">
+            <p className="about-eyebrow">Från idé till idag</p>
             <h2 id="about-story-title">Vår story</h2>
-            <ol className="about-timeline">
-              {milestones.map((milestone, index) => (
-                <li className="about-timeline-item" key={milestone.title}>
-                  <span className="about-timeline-year">{milestone.year}</span>
-                  <article className="about-timeline-card">
-                    {milestone.image && (
-                      <img
-                        className="about-timeline-image"
-                        src={milestone.image}
-                        alt={milestone.imageAlt}
-                      />
-                    )}
-                    <div className="about-timeline-card-content">
-                      <h3>{milestone.title}</h3>
-                      <p>{milestone.text}</p>
-                    </div>
-                  </article>
-                  {index < milestones.length - 1 && (
-                    <span className="about-timeline-marker" aria-hidden="true">
-                      ▦
-                    </span>
+          </div>
+          <ol className="about-timeline" ref={timelineRef}>
+            {milestones.map((milestone) => (
+              <li className="about-timeline-item" key={milestone.title}>
+                <span className="about-timeline-year">{milestone.year}</span>
+                <span className="about-timeline-marker" aria-hidden="true" />
+                <article className="about-timeline-card">
+                  {milestone.image && (
+                    <img
+                      className="about-timeline-image"
+                      src={milestone.image}
+                      alt={milestone.imageAlt}
+                    />
                   )}
-                </li>
-              ))}
-            </ol>
-          </section>
+                  <div className="about-timeline-card-content">
+                    <h3>{milestone.title}</h3>
+                    <p>{milestone.text}</p>
+                  </div>
+                </article>
+              </li>
+            ))}
+          </ol>
+        </section>
 
-          <section className="about-strategy" aria-labelledby="about-strategy-title">
+        <section
+          className="about-strategy"
+          aria-labelledby="about-strategy-title"
+        >
+          <div className="about-strategy-copy">
+            <p className="about-eyebrow">Vårt arbetssätt</p>
             <h2 id="about-strategy-title">Vår strategi</h2>
             <p>
               Vi skapar långsiktigt värde genom att investera i bolag med stark
               tillväxtpotential och hållbar lönsamhet. Med erfarenhet, analys
               och gediget arbete bygger vi framgång för våra andelsägare.
             </p>
+          </div>
+        </section>
 
-            <h2>Vår investeringsfilosofi</h2>
+        <section
+          className="about-philosophy"
+          aria-labelledby="about-philosophy-title"
+        >
+          <div className="about-philosophy-copy">
+            <p className="about-eyebrow">Så väljer vi bolag</p>
+            <h2 id="about-philosophy-title">Vår investeringsfilosofi</h2>
             <p>
               Vi investerar långsiktigt och fundamentalt – alltid med målet att
               skapa värde för våra andelsägare. Vår filosofi bygger på att hitta
@@ -158,11 +235,21 @@ function About() {
               på resan när dessa bolag växer och utvecklas till morgondagens
               marknadsledare.
             </p>
+          </div>
+          <div className="about-philosophy-card">
             <InvestmentPhilosophyDiagram />
-          </section>
+          </div>
+        </section>
 
-          <section className="about-sustainability" aria-labelledby="sustainability-title">
+        <section
+          className="about-sustainability"
+          aria-labelledby="sustainability-title"
+        >
+          <div className="about-sustainability-heading">
+            <p className="about-eyebrow">Ansvarsfullt ägande</p>
             <h2 id="sustainability-title">Hållbarhet på FE Fonder</h2>
+          </div>
+          <div className="about-sustainability-content">
             <p>
               Vi ser hållbarhet som en självklar och integrerad del av vårt
               arbete – både för att minska risker och för att identifiera
@@ -186,12 +273,10 @@ function About() {
             <span className="about-sustainability-document">
               Hållbarhetsrelaterade upplysningar FE Småbolag (PDF)
             </span>
-          </section>
-        </div>
-
-        <PromoAside />
+          </div>
+        </section>
       </div>
-    </main>
+    </section>
   );
 }
 
