@@ -91,14 +91,39 @@ function Header() {
           >
             Köp
           </button>
-          {isMobile && <HamburgerMenu setIsOpen={setIsOpen} />}
+          {isMobile && (
+            <HamburgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
+          )}
         </div>
+
+        {isMobile && (
+          <button
+            className={`mobile-nav-backdrop ${isOpen ? "is-open" : ""}`}
+            type="button"
+            aria-label="Stäng menyn"
+            tabIndex={isOpen ? 0 : -1}
+            onClick={closeMenus}
+          />
+        )}
 
         <nav
           aria-label="Huvudmeny"
+          id="primary-navigation"
+          aria-hidden={isMobile && !isOpen}
+          inert={isMobile && !isOpen}
           className={`nav-test ${isMobile ? "nav-links-mobile" : "nav-links"} 
             ${isMobile && isOpen ? "open" : ""}`}
         >
+          {isMobile && (
+            <button
+              className="mobile-nav-close"
+              type="button"
+              aria-label="Stäng menyn"
+              onClick={closeMenus}
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          )}
           <NavLink to="/Smabolag" className="nav-link" onClick={closeMenus}>
             Varför Småbolag
           </NavLink>

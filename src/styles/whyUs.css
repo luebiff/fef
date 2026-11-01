@@ -1,67 +1,193 @@
 .why-us-page {
   box-sizing: border-box;
-  display: grid;
-  grid-template-columns: minmax(0, 1.7fr) minmax(320px, 1fr);
-  align-items: start;
-  gap: 4.5%;
   min-height: calc(100vh - 67px);
-  margin: -10px;
-  padding: 36px 30px;
-  background: #fff;
-  color: #111;
+  padding: clamp(48px, 7vw, 88px) 24px;
+  background: var(--color-background, #fdfbf7);
+  color: #263746;
 }
 
 .why-us-content {
-  min-width: 0;
+  display: grid;
+  width: min(100%, 1120px);
+  gap: clamp(64px, 9vw, 112px);
+  margin: 0 auto;
+}
+
+.why-us-hero {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.why-us-eyebrow {
+  margin: 0 0 14px;
+  color: var(--color-primary, #1d71b8);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.4;
+  text-transform: uppercase;
 }
 
 .why-us-title {
-  margin: 0 0 18px;
-  color: var(--color-secondary);
-  font-size: 28px;
+  margin: 0 auto 20px;
+  color: var(--color-primary-dark, #1557a0);
+  font-size: clamp(36px, 5vw, 58px);
   font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.08;
+  text-wrap: balance;
 }
 
 .why-us-intro,
 .why-us-description {
   margin: 0;
-  font-size: 16px;
-  line-height: 1.55;
+  color: #465563;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.why-us-intro {
+  max-width: 660px;
+  margin: 0 auto;
+  font-size: clamp(17px, 2vw, 19px);
+}
+
+.why-us-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  align-items: center;
+  gap: clamp(32px, 6vw, 76px);
+}
+
+.why-us-section-copy {
+  max-width: 500px;
 }
 
 .why-us-section-title {
-  margin: 30px 0 16px;
-  font-size: 22px;
+  margin: 0 0 18px;
+  color: var(--color-primary-dark, #1557a0);
+  font-size: clamp(27px, 3.2vw, 38px);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  text-wrap: balance;
 }
 
-.why-us-description {
-  margin-bottom: 20px;
+.why-us-card {
+  min-width: 0;
+  padding: clamp(20px, 3vw, 32px);
+  border: 1px solid rgba(29, 113, 184, 0.08);
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 12px 36px rgba(24, 55, 81, 0.07);
 }
 
-.why-us-follow-up {
-  margin-top: 34px;
+.why-us-performance-card {
+  padding: clamp(12px, 2vw, 24px);
 }
 
-.why-us-follow-up > .why-us-description {
-  margin-bottom: 30px;
+.why-us-performance-card .performance-table-scroll {
+  border-radius: 12px;
 }
 
-@media (max-width: 850px) {
+.why-us-insight {
+  padding: clamp(28px, 5vw, 52px);
+  border: 1px solid rgba(29, 113, 184, 0.08);
+  border-radius: 24px;
+  background: linear-gradient(135deg, #fff 0%, #f0f7fb 100%);
+}
+
+.why-us-insight > div {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.why-us-chart-card .why-us-chart,
+.why-us-sector-card .why-us-sector-chart {
+  margin-top: 0;
+}
+
+.why-us-definition {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+}
+
+.why-us-definition-detail {
+  grid-column: 1 / -1;
+  max-width: 900px;
+  margin: -20px auto 0;
+}
+
+.why-us-strength {
+  max-width: 800px;
+  padding-left: clamp(24px, 5vw, 56px);
+  border-left: 3px solid var(--color-secondary, #0ac6f2);
+}
+
+.why-us-strength .why-us-section-title {
+  max-width: 620px;
+}
+
+.why-us-sectors {
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+}
+
+@media (max-width: 800px) {
   .why-us-page {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 28px;
-    padding: 28px 20px;
+    padding: 48px 20px 64px;
   }
 
+  .why-us-content {
+    gap: 64px;
+  }
+
+  .why-us-section,
+  .why-us-definition,
+  .why-us-sectors {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+
+  .why-us-section-copy {
+    max-width: 680px;
+  }
+
+  .why-us-definition-detail {
+    grid-column: auto;
+    margin: 0;
+  }
 }
 
 @media (max-width: 480px) {
-  .why-us-title {
-    font-size: 25px;
+  .why-us-page {
+    padding: 40px 16px 52px;
   }
 
-  .why-us-section-title {
-    font-size: 20px;
+  .why-us-content {
+    gap: 52px;
   }
 
+  .why-us-intro,
+  .why-us-description {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .why-us-card {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .why-us-performance-card {
+    padding: 10px;
+  }
+
+  .why-us-insight {
+    padding: 26px 22px;
+    border-radius: 18px;
+  }
+
+  .why-us-strength {
+    padding-left: 20px;
+  }
 }
