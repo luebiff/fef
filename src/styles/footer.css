@@ -1,0 +1,147 @@
+.site-footer {
+  margin-top: 80px;
+  padding: 64px 32px 0;
+  border-top: 1px solid #e3e8e8;
+  background: #f5f7f6;
+  color: #26343b;
+}
+
+.site-footer-main,
+.site-footer-bottom {
+  width: min(100%, 1160px);
+  margin: 0 auto;
+}
+
+.site-footer-main {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) minmax(0, 1.3fr);
+  gap: 64px;
+  padding-bottom: 56px;
+}
+
+.site-footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 18px;
+}
+
+.site-footer-logo-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+.site-footer-logo {
+  display: block;
+  width: min(100%, 210px);
+  height: auto;
+}
+
+.site-footer-brand p,
+.site-footer-section p,
+.site-footer-section address {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.site-footer-brand p {
+  color: #65737a;
+}
+
+.site-footer-information {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px;
+}
+
+.site-footer-section h2 {
+  margin: 0 0 16px;
+  color: #52636a;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.site-footer-section address {
+  font-style: normal;
+}
+
+.site-footer-section p {
+  margin-bottom: 8px;
+}
+
+.site-footer-section p span {
+  color: #65737a;
+}
+
+.site-footer-section a {
+  color: #1d71b8;
+  font-size: 15px;
+  text-decoration: none;
+  text-underline-offset: 4px;
+}
+
+.site-footer-section a:hover,
+.site-footer-section a:focus-visible {
+  text-decoration: underline;
+}
+
+.site-footer-section .site-footer-linkedin {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  place-items: center;
+  margin-top: 18px;
+  color: #0a66c2;
+  transition: color 150ms ease;
+}
+
+.site-footer-section .site-footer-linkedin:hover,
+.site-footer-section .site-footer-linkedin:focus-visible {
+  color: #004182;
+  text-decoration: none;
+}
+
+.site-footer-linkedin svg {
+  display: block;
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.site-footer-bottom {
+  padding: 20px 0 24px;
+  border-top: 1px solid #e0e6e5;
+}
+
+.site-footer-bottom p {
+  margin: 0;
+  color: #65737a;
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .site-footer {
+    margin-top: 56px;
+    padding: 44px 24px 0;
+  }
+
+  .site-footer-main {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 36px;
+    padding-bottom: 40px;
+  }
+
+  .site-footer-information {
+    gap: 28px;
+  }
+}
+
+@media (max-width: 440px) {
+  .site-footer-information {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
+  }
+}
