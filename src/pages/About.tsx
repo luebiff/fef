@@ -106,21 +106,21 @@ function About() {
     const updateProgress = () => {
       animationFrame = 0;
       const bounds = timeline.getBoundingClientRect();
-      const progress =
-        (window.innerHeight - bounds.top) /
-        (window.innerHeight + bounds.height);
       const timelineStyle = window.getComputedStyle(timeline, "::after");
       const trackTop = Number.parseFloat(timelineStyle.top);
       const trackBottom = Number.parseFloat(timelineStyle.bottom);
+      const trackHeight = timeline.clientHeight - trackTop - trackBottom;
+      const viewportCenter = window.innerHeight / 2;
+      const progress = Math.min(
+        1,
+        Math.max(0, (viewportCenter - bounds.top - trackTop) / trackHeight),
+      );
       const fillPosition =
-        bounds.top +
-        trackTop +
-        (timeline.clientHeight - trackTop - trackBottom) *
-          Math.min(1, Math.max(0, progress));
+        bounds.top + trackTop + trackHeight * progress;
 
       timeline.style.setProperty(
         "--about-timeline-progress",
-        String(Math.min(1, Math.max(0, progress))),
+        String(progress),
       );
 
       timeline.querySelectorAll(".about-timeline-item").forEach((item) => {
