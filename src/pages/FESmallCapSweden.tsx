@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import PromoAside from "../components/PromoAside";
 import scenic from "../assets/FE-scenic-2.webp";
 import "../styles/feSmallCapSweden.css";
 
@@ -23,6 +22,7 @@ const fundFacts = [
 function SmallCapReturnsChart() {
   return (
     <figure className="small-cap-returns-chart">
+      <div className="small-cap-returns-chart-scroll">
       <svg
         className="small-cap-returns-chart-svg"
         viewBox="0 0 600 300"
@@ -83,7 +83,9 @@ function SmallCapReturnsChart() {
             y2="278"
             className="small-cap-chart-fund"
           />
-          <text x="200" y="282">FE Småbolag Sverige</text>
+          <text x="200" y="282">
+            FE Småbolag Sverige
+          </text>
           <line
             x1="355"
             x2="379"
@@ -91,9 +93,12 @@ function SmallCapReturnsChart() {
             y2="278"
             className="small-cap-chart-index"
           />
-          <text x="385" y="282">SIX Carnegie Small Cap Index</text>
+          <text x="385" y="282">
+            SIX Carnegie Small Cap Index
+          </text>
         </g>
       </svg>
+      </div>
       <figcaption>
         Illustrativ återgivning av diagrammet i bilden. Se fondens officiella
         rapportering för faktiska historiska värden.
@@ -104,13 +109,21 @@ function SmallCapReturnsChart() {
 
 function FESmallCapSweden() {
   return (
-    <main className="small-cap-fund-page">
+    <section
+      className="small-cap-fund-page"
+      aria-labelledby="small-cap-fund-title"
+    >
       <header
         className="small-cap-fund-hero"
         style={{ backgroundImage: `url(${scenic})` }}
       >
         <div className="small-cap-fund-hero-panel">
-          <h1>FE Småbolag Sverige</h1>
+          <div className="small-cap-fund-hero-copy">
+            <p className="small-cap-fund-eyebrow">
+              Aktiv svensk småbolagsfond
+            </p>
+            <h1 id="small-cap-fund-title">FE Småbolag Sverige</h1>
+          </div>
           <Link to="/Investera" className="small-cap-fund-invest-link">
             INVESTERA I FE SMÅBOLAG SVERIGE
           </Link>
@@ -118,18 +131,31 @@ function FESmallCapSweden() {
       </header>
 
       <div className="small-cap-fund-content">
-        <p className="small-cap-fund-intro">
-          FE Småbolag Sverige är en aktivt förvaltad aktiefond som investerar i
-          svenska småbolag. Som en traditionell long-only UCITS-fond är den
-          alltid exponerad mot aktiemarknaden, vilket gör fonden lämpad för
-          långsiktigt sparande. Fonden ger en bred riskspridning över sektorer
-          och urval av bolag med stor utvecklingspotential.
-        </p>
+        <section
+          className="small-cap-fund-intro-card"
+          aria-labelledby="small-cap-about-title"
+        >
+          <p className="small-cap-fund-eyebrow">Om fonden</p>
+          <h2 id="small-cap-about-title">
+            Investera långsiktigt i svenska småbolag
+          </h2>
+          <p className="small-cap-fund-intro">
+            FE Småbolag Sverige är en aktivt förvaltad aktiefond som investerar
+            i svenska småbolag. Som en traditionell long-only UCITS-fond är den
+            alltid exponerad mot aktiemarknaden, vilket gör fonden lämpad för
+            långsiktigt sparande. Fonden ger en bred riskspridning över
+            sektorer och urval av bolag med stor utvecklingspotential.
+          </p>
+        </section>
 
         <div className="small-cap-fund-columns">
           <div className="small-cap-fund-details">
-            <section>
-              <h2>Långsiktigt sparande</h2>
+            <section
+              className="small-cap-fund-info-card"
+              aria-labelledby="small-cap-long-term-title"
+            >
+              <p className="small-cap-fund-eyebrow">Långsiktighet</p>
+              <h2 id="small-cap-long-term-title">Långsiktigt sparande</h2>
               <p>
                 Aktiv förvaltning kan påverka hur skilda aktier och sektorer
                 utvecklas, och småbolag kan växa över tid. Genom att investera
@@ -138,8 +164,12 @@ function FESmallCapSweden() {
               </p>
             </section>
 
-            <section>
-              <h2>Historisk avkastning</h2>
+            <section
+              className="small-cap-fund-info-card"
+              aria-labelledby="small-cap-returns-title"
+            >
+              <p className="small-cap-fund-eyebrow">Utveckling över tid</p>
+              <h2 id="small-cap-returns-title">Historisk avkastning</h2>
               <SmallCapReturnsChart />
               <h3 className="small-cap-returns-table-title">
                 FE Småbolag Sverige – historisk avkastning (%)
@@ -150,8 +180,12 @@ function FESmallCapSweden() {
               </p>
             </section>
 
-            <section className="small-cap-fund-risk">
-              <h2>Riskinformation</h2>
+            <section
+              className="small-cap-fund-risk"
+              aria-labelledby="small-cap-risk-title"
+            >
+              <p className="small-cap-fund-eyebrow">Viktig information</p>
+              <h2 id="small-cap-risk-title">Riskinformation</h2>
               <p>
                 Historisk avkastning är ingen garanti för framtida avkastning.
                 En investering i fonder kan både öka och minska i värde och det
@@ -167,9 +201,11 @@ function FESmallCapSweden() {
           </div>
 
           <aside className="small-cap-fund-facts">
-            <PromoAside />
-            <section className="small-cap-fund-facts-card">
-              <h2>Fondfakta</h2>
+            <section
+              className="small-cap-fund-facts-card"
+              aria-labelledby="small-cap-facts-title"
+            >
+              <h2 id="small-cap-facts-title">Fondfakta</h2>
               <dl>
                 <div>
                   <dt>Namn</dt>
@@ -193,7 +229,7 @@ function FESmallCapSweden() {
           INVESTERA I FE SMÅBOLAG SVERIGE
         </span>
       </Link>
-    </main>
+    </section>
   );
 }
 
