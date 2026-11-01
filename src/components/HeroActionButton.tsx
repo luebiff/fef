@@ -1,16 +1,24 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../styles/heroActionButton.css";
 
 type HeroActionButtonProps = {
   text: string;
-  buttonText?: string;
+  url: string;
+  variant?: "primary" | "secondary";
 };
 
-function HeroActionButton({ text }: HeroActionButtonProps) {
+function HeroActionButton({
+  text,
+  url,
+  variant = "primary",
+}: HeroActionButtonProps) {
   return (
-    <a className="hero-action-button glass-card" href="#">
+    <NavLink
+      className={`hero-action-button hero-action-button-${variant}`}
+      to={url}
+    >
       {text}
-    </a>
+    </NavLink>
   );
 }
 

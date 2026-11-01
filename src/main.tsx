@@ -8,6 +8,7 @@ import FESelect from "./pages/FESelect";
 import FESmallCapSweden from "./pages/FESmallCapSweden";
 import Home from "./pages/Home";
 import Invest from "./pages/Invest";
+import NewsPage from "./pages/NewsPage";
 import Risk from "./pages/Risk";
 import Team from "./pages/Team";
 import WhyUs from "./pages/WhyUs";
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
         element: <FESmallCapSweden />,
       },
       { path: "Investera", element: <Invest /> },
-      { path: "Nyheter", element: <h1>Nyheter</h1> },
+      { path: "Nyheter", element: <NewsPage /> },
       // { path: "Information", element: <About /> },
       {
         path: "Information/Teamet",

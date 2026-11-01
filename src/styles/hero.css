@@ -1,70 +1,104 @@
 .hero {
+  position: relative;
+  display: flex;
+  min-height: 100vh;
+  min-height: 100svh;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: -77px -10px 0;
+  padding: 100px 24px 160px;
+  background: linear-gradient(145deg, #102f4c 0%, #1557a0 58%, #1d71b8 100%);
+  color: #fff;
+  text-align: center;
+}
+
+.hero::after {
   position: absolute;
-  top: 0;
-  left: 0;
+  z-index: 0;
   right: 0;
   bottom: 0;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  gap: 50px;
-  padding: 20px;
-  color: #fff;
-  height: 100vh;
-  background: linear-gradient(
-    var(--color-primary) 0%,
+  left: 0;
+  height: 100px;
+  background: linear-gradient(transparent, rgba(10, 35, 57, 0.22));
+  content: "";
+  pointer-events: none;
+}
 
-    var(--color-background) 90%
-  );
-  margin-bottom: 10px;
-  overflow: hidden;
+.hero-content {
+  position: relative;
+  z-index: 1;
+  width: min(100%, 980px);
+  margin-top: -28px;
+}
+
+.hero-eyebrow {
+  margin: 0 0 24px;
+  color: #7de8ff;
+  font-size: clamp(13px, 1.4vw, 16px);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.hero-content h1 {
+  margin: 0 auto;
+  font-size: clamp(40px, 7vw, 84px);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 1.04;
+  text-wrap: balance;
+}
+
+.hero-description {
+  margin: 24px 0 0;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.5;
+}
+
+.hero-call-to-action {
+  position: absolute;
+  right: 24px;
+  bottom: clamp(34px, 7vh, 68px);
+  left: 24px;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
 }
 
 @media (max-width: 670px) {
   .hero {
+    padding: 100px 22px 170px;
+  }
+
+  .hero-content {
+    margin-top: -8px;
+  }
+
+  .hero-eyebrow {
+    margin-bottom: 18px;
+    letter-spacing: 0.12em;
+  }
+
+  .hero-content h1 {
+    max-width: 520px;
+  }
+
+  .hero-description {
+    margin-top: 18px;
+  }
+
+  .hero-call-to-action {
+    right: 22px;
+    bottom: 30px;
+    left: 22px;
     flex-direction: column;
+    align-items: stretch;
+    max-width: 360px;
+    margin: 0 auto;
   }
-
-  .text {
-    max-width: 300px;
-    text-align: center;
-  }
-}
-
-.text {
-  z-index: 10;
-}
-
-.logo {
-  /* width: 250px; */
-  width: 100%;
-  z-index: 5;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0.1;
-}
-
-.hero-description {
-  font-size: 16px;
-  max-width: 500px;
-}
-
-.question {
-  font-size: 18px;
-  margin-bottom: 0;
-}
-
-.welcome {
-  font-size: 24px;
-  margin-top: 0;
-}
-
-.hero-call-to-action {
-  display: flex;
-  gap: 20px;
-  /* position: absolute;
-  bottom: 90px;
-  left: 60px; */
 }

@@ -1,23 +1,72 @@
 .hero-action-button {
-  width: 220px;
-  padding: 5px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+  display: inline-flex;
+  min-width: 220px;
+  min-height: 58px;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  gap: 12px;
+  box-sizing: border-box;
+  padding: 14px 24px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
   text-decoration: none;
-  margin-top: 100px;
-  transition: 0.4s;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
 }
 
-.hero-action-button-text {
-  font-size: 1.2em;
-  margin: 0px;
+.hero-action-button::after {
+  content: "→";
+  font-size: 20px;
+  line-height: 1;
+  transition: transform 180ms ease;
 }
 
-.hero-action-button:hover {
-  background-color: var(--color-primary);
+.hero-action-button-primary {
+  background: #fff;
+  color: #1557a0;
+}
+
+.hero-action-button-primary:hover {
+  background: #e8faff;
+  transform: translateY(-2px);
+}
+
+.hero-action-button-secondary {
+  border-color: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.06);
   color: #fff;
+}
+
+.hero-action-button-secondary:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.14);
+  transform: translateY(-2px);
+}
+
+.hero-action-button:hover::after {
+  transform: translateX(3px);
+}
+
+.hero-action-button:focus-visible {
+  outline: 3px solid #7de8ff;
+  outline-offset: 4px;
+}
+
+@media (max-width: 670px) {
+  .hero-action-button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-action-button,
+  .hero-action-button::after {
+    transition: none;
+  }
 }

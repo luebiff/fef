@@ -1,50 +1,51 @@
 .performance-table-scroll {
   width: 100%;
   overflow-x: auto;
+  border-radius: 12px;
 }
 
 .performance-table {
   width: 100%;
   min-width: 460px;
   border-collapse: collapse;
-  table-layout: auto;
-  color: #111;
-  font-size: 14px;
-}
-
-.performance-table thead,
-.performance-table tfoot {
-  background-color: var(--color-primary);
-  color: #fff;
+  color: #263746;
+  font-size: 15px;
   text-align: left;
 }
 
 .performance-table th,
 .performance-table td {
-  padding: 10px;
-  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 1px solid #e8edf1;
+}
+
+.performance-table thead {
+  background: #edf5fa;
+  color: var(--color-primary-dark);
 }
 
 .performance-table thead th {
-  font-weight: 600;
+  font-size: 13px;
+  font-weight: 700;
 }
 
 .performance-table tbody th {
-  font-weight: 400;
+  font-weight: 500;
 }
 
-.performance-table tbody tr:nth-child(odd) {
-  background-color: #f3f3f3;
-}
-
-.performance-table tbody tr:nth-child(even) {
-  background-color: #fff;
+.performance-table tbody tr:first-child {
+  background: #f2f9fc;
+  color: var(--color-primary-dark);
+  font-weight: 700;
 }
 
 .performance-table tbody tr:hover {
-  background-color: #e8f4fb;
+  background: #f7fafc;
 }
 
 .performance-table tfoot td {
-  font-weight: 600;
+  padding: 14px 16px 0;
+  border: 0;
+  color: #6b7781;
+  font-size: 12px;
 }
