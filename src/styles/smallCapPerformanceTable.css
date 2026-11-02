@@ -1,22 +1,32 @@
 .performance-table-scroll {
   width: 100%;
-  overflow-x: auto;
   border-radius: 12px;
 }
 
 .performance-table {
   width: 100%;
-  min-width: 460px;
+  min-width: 0;
+  table-layout: fixed;
   border-collapse: collapse;
   color: #263746;
   font-size: 15px;
   text-align: left;
 }
 
+.performance-table thead th:first-child {
+  width: 60%;
+}
+
+.performance-table thead th:nth-child(2),
+.performance-table thead th:nth-child(3) {
+  width: 20%;
+}
+
 .performance-table th,
 .performance-table td {
-  padding: 14px 16px;
+  padding: 14px 10px;
   border-bottom: 1px solid #e8edf1;
+  overflow-wrap: anywhere;
 }
 
 .performance-table thead {
@@ -48,4 +58,23 @@
   border: 0;
   color: #6b7781;
   font-size: 12px;
+}
+
+@media (max-width: 560px) {
+  .performance-table {
+    font-size: 13px;
+  }
+
+  .performance-table th,
+  .performance-table td {
+    padding: 10px 6px;
+  }
+
+  .performance-table thead th {
+    font-size: 11px;
+  }
+
+  .performance-table tfoot td {
+    padding: 12px 6px 0;
+  }
 }
