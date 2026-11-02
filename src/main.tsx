@@ -15,42 +15,45 @@ import WhyUs from "./pages/WhyUs";
 import { NotFound } from "./pages/Notfound";
 import MainLayout from "./layouts/MainLayout";
 
-const router = createBrowserRouter([
-  { path: "*", element: <NotFound /> },
-  {
-    path: "/",
-    element: <MainLayout />,
-    children: [
-      { path: "", element: <Home /> },
-      { path: "Smabolag", element: <WhyUs /> },
-      { path: "Fonder", element: <h1>Fonder</h1> },
-      { path: "fe-selec", element: <FESelect /> },
-      {
-        path: "fe-smabolag-sverige",
-        element: <FESmallCapSweden />,
-      },
-      { path: "Investera", element: <Invest /> },
-      { path: "Nyheter", element: <NewsPage /> },
-      // { path: "Information", element: <About /> },
-      {
-        path: "Information/Teamet",
-        element: <Team />,
-      },
-      {
-        path: "Information/Omoss",
-        element: <About />,
-      },
-      {
-        path: "Information/Samarbeten",
-        element: <Collaborations />,
-      },
-      {
-        path: "Information/Riskinformation",
-        element: <Risk />,
-      },
-    ],
-  },
-]);
+const router = createBrowserRouter(
+  [
+    { path: "*", element: <NotFound /> },
+    {
+      path: "/",
+      element: <MainLayout />,
+      children: [
+        { path: "", element: <Home /> },
+        { path: "Smabolag", element: <WhyUs /> },
+        { path: "Fonder", element: <h1>Fonder</h1> },
+        { path: "fe-selec", element: <FESelect /> },
+        {
+          path: "fe-smabolag-sverige",
+          element: <FESmallCapSweden />,
+        },
+        { path: "Investera", element: <Invest /> },
+        { path: "Nyheter", element: <NewsPage /> },
+        // { path: "Information", element: <About /> },
+        {
+          path: "Information/Teamet",
+          element: <Team />,
+        },
+        {
+          path: "Information/Omoss",
+          element: <About />,
+        },
+        {
+          path: "Information/Samarbeten",
+          element: <Collaborations />,
+        },
+        {
+          path: "Information/Riskinformation",
+          element: <Risk />,
+        },
+      ],
+    },
+  ],
+  { basename: import.meta.env.BASE_URL },
+);
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
